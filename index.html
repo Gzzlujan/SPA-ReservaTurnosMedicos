@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPA Reserva Turnos</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+    <div class="container mt-4">
+        <nav class="display-none">
+            <a href="#/reservas" class="btn">Reservar turno</a>
+            <a href="#/historial" class="btn">Historial</a>
+            <button id="logoutBtn" class="btn ">Cerrar Sesión</button>
+        </nav>
+        <div id="paginaPrincipal">
+            <h1>Bienvenido a la pagina de reservas de turnos de la clinica <br> <strong>Villa Script</strong></h1>
+            <div id="loggedOptions">
+                <p>Por favor, inicie sesión para continuar</p>
+                <a href="#/login">Iniciar sesion</a>
+                <p>¿Todavia no estas registrado?</p>
+                <a href="#/register">Registrarse</a>
+            </div>
+        </div>
+        <div id="app"></div>
+    </div>
+    <script defer src="/dist/bundle.js"></script>
+</body>
+
+</html>
