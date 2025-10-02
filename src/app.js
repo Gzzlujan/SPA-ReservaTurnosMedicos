@@ -1,3 +1,5 @@
+import { initRegister } from './views/register.js';
+
 class App {
     constructor() {
         this.routes = {
@@ -16,11 +18,28 @@ class App {
             if (!res.ok) throw new Error(`Error ${res.status} : ${res.statusText}`);
             const html = await res.text();
             this.appDiv.innerHTML = html;
+            
+            if (route === '#/login') {
+                const { initLogin } = await import('./views/login.js');
+                initLogin();
+            }
+            if (route === '#/register') {
+                initRegister();
+            }
+            
 
         } catch (error) {
             console.error('Error al cargar la vista:', error);
             this.appDiv.innerHTML = '<h1>Error al cargar la vista</h1>';
         }
+    }
+
+    initLogin() {
+        import ('./views/login.js').then(module => {
+            module.initLogin();
+        }).catch(err => {
+            console.error('Error loading login module:', err);
+        });
     }
 
     start() {
