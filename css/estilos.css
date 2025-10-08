@@ -24,11 +24,13 @@ body {
     padding: 32px 24px;
 }
 
-nav.user-logueado {
+#naOption {
     display: flex;
-    justify-content: flex-end;
-    gap: 12px;
-    margin-bottom: 24px;
+    flex-direction: column; 
+    align-items: center; 
+    gap: 10px;
+    margin: 0 auto 24px; 
+    max-width: 380px; 
 }
 
 .btn, a.btn {
@@ -49,7 +51,13 @@ nav.user-logueado {
     box-shadow: 0 4px 16px rgba(44, 62, 80, 0.16);
 }
 
-nav.display-none, div.display-none {
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.display-none {
     display: none;
 }
 
@@ -138,11 +146,6 @@ nav.display-none, div.display-none {
     .container {
         padding: 18px 8px;
         max-width: 98vw;
-    }
-    nav.user-logueado {
-        flex-direction: column;
-        align-items: flex-end;
-        gap: 8px;
     }
     #paginaPrincipal h1 {
         font-size: 1.3rem;

@@ -1,5 +1,5 @@
 function obtenerUsuario() {
-    return JSON.parse(localStorage.getItem('usuario')) || [];
+    return JSON.parse(localStorage.getItem('usuarios')) || [];
 }
 
 function registrarUsuario(nombre, email, telefono, password) {
@@ -19,4 +19,20 @@ function usuarioRegistrado(email) {
     return usuarios.some(usuario => usuario.email === email);
 }
 
-export { registrarUsuario, validarUsuario, usuarioRegistrado };
+function crearReserva(usuarioEmail, especialidad, fecha, hora) {
+    const reservas = JSON.parse(localStorage.getItem('reservas')) || [];
+    const nuevaReserva = { usuarioEmail, fecha, hora, especialidad };
+    reservas.push(nuevaReserva);
+    localStorage.setItem('reservas', JSON.stringify(reservas));
+}
+
+function sesionIniciada(userEmail) {
+    sessionStorage.setItem('userEmail', userEmail);
+}
+
+function cerrarSesion() {
+    sessionStorage.clear();
+}
+
+
+export { registrarUsuario, validarUsuario, usuarioRegistrado, obtenerUsuario, crearReserva, sesionIniciada };
