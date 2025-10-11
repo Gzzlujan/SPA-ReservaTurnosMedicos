@@ -1,5 +1,6 @@
 import { initRegister } from './views/register.js';
 import { initReservas } from './views/reservas.js';
+import { initHistorial } from './views/historial.js';
 
 class App {
     constructor() {
@@ -45,6 +46,9 @@ class App {
                     break;
                 case '#/reservas':
                     await initReservas(this.appDiv);
+                    break;
+                case '#/historial':
+                    await initHistorial(this.appDiv);
                     break;
             }
         } catch (error) {
@@ -109,7 +113,7 @@ class App {
             if (btnCerrarSesion) {
                 btnCerrarSesion.addEventListener('click', (e) => {
                     e.preventDefault();
-                    sessionStorage.removeItem('userEmail');
+                    sessionStorage.clear();
                     document.getElementById('user').textContent = '';
                     this.loggedOptionsDiv.classList.remove('display-none');
                     this.navOption.classList.add('display-none');
