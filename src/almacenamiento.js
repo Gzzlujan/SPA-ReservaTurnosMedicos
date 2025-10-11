@@ -26,8 +26,9 @@ function crearReserva(usuarioEmail, especialidad, fecha, hora) {
     localStorage.setItem('reservas', JSON.stringify(reservas));
 }
 
-function sesionIniciada(userEmail) {
+function sesionIniciada(userEmail, usuarioNombre) {
     sessionStorage.setItem('userEmail', userEmail);
+    sessionStorage.setItem('userName', usuarioNombre);
 }
 
 function cerrarSesion() {
